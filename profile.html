@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Profile</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="sidebar">
+
+<h2>SmartSign</h2>
+
+<a href="dashboard.html">Dashboard</a>
+
+<a href="profile.html">Profile</a>
+
+<a href="tasks.html">Tasks</a>
+
+<a href="settings.html">Settings</a>
+
+<button onclick="logout()">Logout</button>
+
+</div>
+
+<div class="main-content">
+
+<h1>User Profile</h1>
+<h2 id="userEmail"></h2>
+<div class="profile-card">
+
+<img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png">
+
+<h2 id="userEmail"></h2>
+
+<p>Frontend Developer</p>
+
+<hr>
+
+<h3>Joined Date</h3>
+
+<p>September 2025</p>
+
+<h3>Skills</h3>
+
+<p>
+
+HTML | CSS | JavaScript | AI UI
+
+</p>
+
+<h3>AI Accuracy</h3>
+
+<p>98%</p>
+
+<h3>Project Status</h3>
+
+<p>Active</p>
+
+<button class="detect-btn" onclick="editProfile()">
+
+Edit Profile
+
+</button>
+
+</div>
+<footer>
+    @ 2025 SmartSign | AI Powered Platform
+</footer>
+<script>
+
+document.getElementById("userEmail").innerHTML =localStorage.getItem("user");
+
+function logout(){
+
+window.location.href="index.html";
+
+}
+function editProfile(){
+    let newNam = prompt("Enter New Username");
+    if(newName !=""){
+        localStorage.setItem("user", newName);
+        document.getElementById("userEmail").innerHTML = newName;
+    }
+}
+
+</script>
+
+</body>
+
+</html>

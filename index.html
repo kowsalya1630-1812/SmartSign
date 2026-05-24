@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>SmartSign</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+     <nav>
+
+    <ul>
+        <li>Home</li>
+        <li>About</li>
+        <li>Contact</li>
+    </ul>
+</nav>
+    <div class="hero">
+        <h2>SmartSign</h2>
+        <P>AI Powered sign Language Learning & Recognition Platform</P>
+        <a href="about.html">
+            <button>Get Started</button>
+        </a>
+    </div>
+    
+    <div class="card"
+         <p>Real-time sign Recognition using AI</p>
+         <input type="text" id="username" placeholder="Enter username">
+
+<br><br>
+
+<input type="password" id="password" placeholder="Enter Password">
+<p id="error"></p>
+<br><br>
+<button onclick="login()">login</button>
+<h3 id="welcometext"></h3>
+<p id="message"></p>
+</div>
+<footer>
+    @ 2025 SmartSign | AI Powered Platform
+</footer>
+<script>
+    function welcome(){
+        window.location.href = "about.html";
+    }
+    function login(){
+        let username =document.getElementById("username").value;
+        let password= document.getElementById("password").value;
+        if(username === "" || password === ""){
+            document.getElementById("error").innerHTML = "please fill all fields";
+        }     
+        else{
+            localStorage.setItem("user",username);
+            window.location.href="dashboard.html";
+        }
+    }
+</script>
+
+</body>
+</html>

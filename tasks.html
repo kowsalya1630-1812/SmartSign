@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Tasks</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="sidebar">
+
+<h2>SmartSign</h2>
+
+<a href="dashboard.html">Dashboard</a>
+
+<a href="profile.html">Profile</a>
+
+<a href="settings.html">Settings</a>
+
+<a href="tasks.html">Tasks</a>
+
+<button onclick="logout()">Logout</button>
+
+</div>
+
+<div class="main-content">
+
+<h1>Today's Tasks</h1>
+<h3 id="taskCount">
+    Total Tasks : 0
+</h3>
+<div class="task-box">
+
+<input type="text" id="taskInput" placeholder="Enter Task">
+
+<button onclick="addTask()">Add</button>
+</div>
+
+<ul id="taskList"></ul>
+
+</div>
+<footer>
+    @ 2025 SmartSign | AI Powered Platform
+</footer>
+
+<script>
+    let totalTasks = 0;
+
+function addTask(){
+
+let task =
+document.getElementById("taskInput").value;
+
+let li =
+document.createElement("li");
+
+li.innerHTML = '<span onclick="completeTask(this)">'+task+'</span> <button onclick ="deleteTask(this)">X</button>';
+
+document.getElementById("taskList")
+.appendChild(li);
+
+totalTasks++;
+document.getElementById("taskCount").innerHTML = "Total Tasks : " + totalTasks;
+
+}
+
+function logout(){
+
+window.location.href="index.html";
+
+}
+function deleteTask(button){
+    button.parentElement.remove();
+    totalTasks--;
+    document.getElementById("taskCount").innerHTML="Total Tasks : " + totalTasks;
+}
+function completeTask(){
+    task.style.textDecoration = "line-through";
+    task.style.color = "lightgreen";
+}
+
+</script>
+
+</body>
+
+</html>

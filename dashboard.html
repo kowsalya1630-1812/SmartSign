@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <div class="sidebar">
+        <h2>SmartSign</h2>
+    
+    <a href="dashboard.html">Dashboard</a>
+    <a href="settings.html">Settings</a>
+    <a href="profile.html">Profile</a>
+    <a href="tasks.html">Tasks</a>
+    <button onclick="logout()">Logout</button>
+
+</div>
+    <div class="hero">
+        <div class ="main-content">
+        <h1 id="welcomeText"></h1>
+        <h2 id="clock"></h2>
+        <button class="detect-btn" onclick="openCamera()">
+            Start Detection
+        </button>
+        <div id="cameraBox" class="camera-box">
+            <h2>Camera Detection Started</h2>
+            <button onclick="takeShot()"
+            class="clear-btn">
+            Capture Screenshot
+            </button>
+            <h3>
+                AI Accuracy:98%
+            </h3>
+            <video autoplay></video>
+            <h3 id="loadingText">
+                Initializing AI Model...
+            </h3>
+            <h3 id="resultText">
+                Detecting Hand Sign...
+            </h3>
+        </div>
+        <h2 id="countText">
+            Detected Signs:0
+        </h2>
+        <button onclick="clearHistory()"
+        class="clear-btn">
+           Clear History
+        </button>
+        <button onclick="downloadReport()"
+        class="clear-btn">
+           Download Report
+        </button>
+        <div class="history-box">
+            <h2>Detection History</h2>
+            <ul id="historyList"></ul>
+        </div>
+        <p id="time"></p>
+
+        <p>
+            AI Powered Sign Language Platform
+        </p>
+        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
+        class="profile>"
+
+    </div>
+    
+    <div class="dashboard-cards">
+        <div class="dash-card">
+            <h2>120+</h2>
+            <p>Signs learned</p>
+        </div>
+        <div class="dash-card">
+            <h2>AI</h2>
+            <P>Real-time Recognition</P>
+        </div>
+        <div class="dash-card">
+            <h2>24/7</h2>
+            <p>Learning Access</p>
+        </div>
+    </div>
+ </div>  
+</div>
+    
+    <footer>
+        <p>@ 2025 SmartSign | AI Powered Sign Language Platform</p>
+    </footer>
+    <script>
+        let user = localStorage.getItem("user");
+        document.getElementById("welcome").innerHTML = "welcome"+user;
+        document.getElementById("profileName").innerHTML = user;
+        function showTime(){
+            let date = new Date();
+            document.getElementById("time").innerHTML = date.toLocaleTimeString();
+        }
+        setInterval(showTime,1000);
+        showTime();
+
+        function addTask(){
+        let task=document.getElementById("taskInput").value;
+        let li=document.createElement("li");
+        li.innerHTML=task;
+        document.getElementById("taskList").appendChild(li);
+        }
+    </script>
+ <script>
+    document.getElementById("welcomeText").innerHTML = "welcome"+localStorage.getItem("user");
+
+   let count = 0;
+
+   function openCamera(){
+
+   document.getElementById("cameraBox").style.display ="block";
+
+    navigator.mediaDevices.getUserMedia({ video: true }).then(function(stream){
+
+    document.querySelector("video").srcObject =stream;
+
+    setTimeout(function(){
+
+        let signs = [
+          "Hello",
+          "Thank You",
+          "Yes",
+          "No",
+          "Welcome"
+         ];
+
+        let randomSign =signs[Math.floor(Math.random() * signs.length)];
+
+        document.getElementById("resultText").innerHTML ="Detected Sign : " + randomSign;
+
+        let speech =new SpeechSynthesisUtterance();
+
+        speech.text = randomSign;
+
+        window.speechSynthesis.speak(speech);
+
+        let li =document.createElement("li");
+
+        li.innerHTML = randomSign;
+
+        document.getElementById("historyList").appendChild(li);
+
+        count = count + 1;
+
+        document.getElementById("countText").innerHTML ="Detected Signs : " + count;
+
+        document.getElementById("loadingText").style.display="none";
+
+        },3000);
+
+     })
+
+     .catch(function(error){
+
+        alert("Camera access denied");
+
+   });
+
+  }
+
+function logout(){
+
+window.location.href = "index.html";
+
+}
+function clearHistory(){
+    document.getElementById("historyList").innerHTML="";
+    count=0;
+    document.getElementById("countText").innerHTML="Detected Signs:0";
+}
+function downloadReport(){
+    let history=document.getElementById("historyList").innerText;
+    let blob=new Blob([history],{type:"text/plain"});
+    let a=document.createElement("a");
+    a.href=URL.createObjectURL(blob);
+    a.download="detection_report.txt";
+    a.click();
+}
+function takeShot(){
+    alert("Screenshot Captured");
+}
+setInterval(function(){
+    let now = new Date();
+    document.getElementById("clock").innerHTML = now.toLocaleTimeString();
+},1000);
+
+</script>
+   
+
+</body>
+
+</html>
