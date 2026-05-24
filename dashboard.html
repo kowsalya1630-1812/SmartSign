@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html>
 
@@ -194,4 +195,73 @@ setInterval(function(){
 
 </body>
 
+=======
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+    <div class="sidebar">
+    
+    <a href="#">Dashboard</a>
+    <a href="#">Profile</a>
+    <a href="#">Settings</a>
+    <a href="index.html">Logout</a>
+
+</div>
+
+    <nav>
+        <ul>
+            <li><a href="index.html">Logout</a></li>
+        </ul>
+
+    </nav>
+
+    <div class="hero">
+
+        <h1 id="welcome"></h1>
+
+        <p>
+            AI Powered Sign Language Platform
+        </p>
+        <img src="https://cdn-icons-png.flaticon.com/512/3135/3135715.png"
+        class="profile>"
+
+    </div>
+    <div class="dashboard-cards">
+        <div class="dash-card">
+            <h2>120+</h2>
+            <p>Signs learned</p>
+        </div>
+        <div class="dash-card">
+            <h2>AI</h2>
+            <P>Real-time Recognition</P>
+        </div>
+        <div class="dash-card">
+            <h2>24/7</h2>
+            <p>Learning Access</p>
+        </div>
+    </div>
+    <footer>
+        <p>@ 2025 SmartSign | AI Powered Sign Language Platform</p>
+    </footer>
+    <script>
+        function darkMode(){
+            document.body.classList.toggle("light");
+        }
+    </script>
+    <script>
+        let user = localStorage.getItem("user");
+        document.getElementById("welcome").innerHTML = "welcome"+user;
+    </script>
+
+</body>
+
+>>>>>>> 79ed0b45f7215da63df7c2dc4733ba30535987a2
 </html>

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # SmartSign - AI Powered Sign Language Recognition System
 
 ## 📌 Project Overview
@@ -58,3 +59,7 @@ The project helps users understand how AI-based sign language systems work throu
 ## 👨‍💻 Developed By
 
 Kowsi
+=======
+# SmartSign
+AI powered sign language learning &amp; recognition platform
+>>>>>>> 79ed0b45f7215da63df7c2dc4733ba30535987a2

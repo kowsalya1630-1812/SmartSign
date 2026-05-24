@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html>
 
@@ -87,4 +88,76 @@ function completeTask(){
 
 </body>
 
+=======
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Tasks</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="sidebar">
+
+<h2>SmartSign</h2>
+
+<a href="dashboard.html">Dashboard</a>
+
+<a href="profile.html">Profile</a>
+
+<a href="#">Settings</a>
+
+<a href="tasks.html">Tasks</a>
+
+<button onclick="logout()">Logout</button>
+
+</div>
+
+<div class="main-content">
+
+<h1>Today's Tasks</h1>
+<div class="task-box">
+
+<input type="text" id="taskInput" placeholder="Enter Task">
+
+<button onclick="addTask()">Add</button>
+</div>
+
+<ul id="taskList"></ul>
+
+</div>
+
+<script>
+
+function addTask(){
+
+let task =
+document.getElementById("taskInput").value;
+
+let li =
+document.createElement("li");
+
+li.innerHTML = task;
+
+document.getElementById("taskList")
+.appendChild(li);
+
+}
+
+function logout(){
+
+window.location.href="index.html";
+
+}
+
+</script>
+
+</body>
+
+>>>>>>> 79ed0b45f7215da63df7c2dc4733ba30535987a2
 </html>

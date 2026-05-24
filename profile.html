@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html>
 
@@ -92,4 +93,53 @@ function editProfile(){
 
 </body>
 
+=======
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Profile</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="sidebar">
+
+<h2>SmartSign</h2>
+
+<a href="dashboard.html">Dashboard</a>
+
+<a href="profile.html">Profile</a>
+
+<a href="tasks.html">Tasks</a>
+
+<button onclick="logout()">Logout</button>
+
+</div>
+
+<div class="main-content">
+
+<h1>User Profile</h1>
+<h2 id="userEmail"></h2>
+</div>
+
+<script>
+
+document.getElementById("userEmail").innerHTML =localStorage.getItem("user");
+
+function logout(){
+
+window.location.href="index.html";
+
+}
+
+</script>
+
+</body>
+
+>>>>>>> 79ed0b45f7215da63df7c2dc4733ba30535987a2
 </html>
